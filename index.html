@@ -1,288 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuvraj R | Cloud & DevOps</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yuvraj R. — Aspiring Cloud & DevOps Engineer. Explore my learning journey, repositories, achievements, and technical blogs.">
+  <title>Yuvraj R. | Cloud & DevOps Portfolio</title>
+  <style>
+    :root {
+      --page: #f3f6ff;
+      --surface: #ffffff;
+      --text: #151d35;
+      --muted: #56627a;
+      --line: #dce4f4;
+      --accent: #315cf5;
+      --accent-dark: #2043c7;
+      --soft-blue: #e9efff;
+      --teal: #08a6a6;
+      --shadow: 0 18px 46px rgba(35, 66, 145, 0.12);
+      --radius: 22px;
+      --max-width: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0; background: var(--page); color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .container { width: min(var(--max-width), calc(100% - 36px)); margin: 0 auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96);
+      backdrop-filter: blur(16px); border-bottom: 1px solid var(--line);
+      box-shadow: 0 5px 20px rgba(36,67,145,.06);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: center; }
+    .nav-links {
+      width: 100%; display: flex; gap: clamp(18px, 4vw, 42px); flex-wrap: nowrap;
+      align-items: center; justify-content: center; white-space: nowrap;
+    }
+    .nav-links a {
+      text-decoration: none; color: #465574; font-size: .98rem; font-weight: 750;
+      flex: 0 0 auto; padding: 10px 0; border-bottom: 3px solid transparent;
+      transition: color .2s ease, border-color .2s ease;
+    }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--accent); border-bottom-color: var(--teal); }
+    .hero { padding: 64px 0 34px; }
+    .hero-card {
+      display: grid; grid-template-columns: 1.35fr .65fr; align-items: center; gap: 38px;
+      background: linear-gradient(135deg,#fff 0%,#f7f9ff 62%,#eef4ff 100%);
+      border: 1px solid var(--line); border-radius: 28px;
+      padding: clamp(28px,5vw,58px); box-shadow: var(--shadow);
+    }
+    h1,h2,h3 { margin-top: 0; line-height: 1.15; }
+    h1 { font-size: clamp(2.5rem,6vw,4.5rem); letter-spacing: -.055em; margin: 18px 0 12px; }
+    .role { font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 750; margin: 0 0 15px; }
+    .hero-copy { color: var(--muted); font-size: 1.05rem; max-width: 660px; margin: 0; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border: 1px solid var(--accent); border-radius: 13px; padding: 12px 18px;
+      font-weight: 750; text-decoration: none; transition: .2s ease;
+    }
+    .button.primary { background: var(--accent); color: white; }
+    .button.primary:hover { background: var(--accent-dark); transform: translateY(-2px); }
+    .button.secondary { color: var(--text); border-color: var(--line); background: white; }
+    .button.secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .avatar {
+      width: min(100%,250px); aspect-ratio: 1; justify-self: center; display: grid; place-items: center;
+      border-radius: 28px; background: linear-gradient(145deg,#e8efff,#f7f9ff);
+      border: 1px solid #dbe5ff; color: var(--accent);
+      font-size: clamp(4rem,10vw,6.5rem); font-weight: 850; letter-spacing: -.08em;
+      overflow: hidden;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    section { padding: 36px 0; }
+    .section-heading { margin-bottom: 22px; }
+    .section-heading h2 { font-size: clamp(1.8rem,4vw,2.55rem); letter-spacing: -.045em; margin-bottom: 9px; }
+    .section-heading p { color: var(--muted); margin: 0; max-width: 720px; }
+    .panel {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: clamp(22px,4vw,34px); box-shadow: 0 10px 30px rgba(35,66,145,.07);
+    }
+    .about-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 22px; }
+    .about-text p { color: var(--muted); margin-top: 0; }
+    .facts { display: grid; gap: 12px; }
+    .fact { padding: 15px 16px; border-radius: 14px; background: #f8f9fc; border: 1px solid var(--line); }
+    .fact strong { display: block; margin-bottom: 3px; }
+    .fact span { color: var(--muted); font-size: .94rem; }
+    .skill-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+    .skill-row {
+      min-height: 116px; padding: 20px; border: 1px solid #dce5fb;
+      border-left: 5px solid var(--skill-color,var(--accent)); border-radius: 16px;
+      background: linear-gradient(135deg,#fff,var(--skill-tint,#f2f6ff));
+      box-shadow: 0 7px 20px rgba(35,66,145,.055); transition: transform .2s ease,box-shadow .2s ease;
+    }
+    .skill-row:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(35,66,145,.11); }
+    .skill-row strong { display: block; color: var(--text); font-size: 1.03rem; margin-bottom: 7px; }
+    .skill-row p { margin: 0; color: var(--muted); font-size: .96rem; line-height: 1.55; }
+    .work-list { display: grid; gap: 16px; }
+    .work-card {
+      display: grid; grid-template-columns: 58px 1fr auto; align-items: start; gap: 18px;
+      padding: 23px; background: var(--surface); border: 1px solid var(--line); border-radius: 19px; transition: .2s ease;
+    }
+    .work-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: #c9d6fb; }
+    .work-icon { width: 56px; height: 56px; display: grid; place-items: center; border-radius: 16px; background: var(--soft-blue); font-size: 1.7rem; }
+    .work-card h3 { font-size: 1.15rem; margin: 1px 0 8px; }
+    .work-card p { margin: 0 0 10px; color: var(--muted); }
+    .tags { display: flex; gap: 7px; flex-wrap: wrap; }
+    .tag { color: #586276; background: #f3f5f8; padding: 4px 9px; border-radius: 7px; font-size: .78rem; font-weight: 700; }
+    .repo-link { white-space: nowrap; text-decoration: none; color: var(--accent); font-weight: 800; margin-top: 3px; }
+    .repo-link:hover { color: var(--accent-dark); }
+    .achievement-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+    .achievement-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+    .achievement-card h3 { font-size: 1.08rem; margin-bottom: 10px; }
+    .achievement-card p,.achievement-card li { color: var(--muted); }
+    .achievement-card p { margin: 0; }
+    .achievement-card ul { margin: 0; padding-left: 20px; }
+    .achievement-card li + li { margin-top: 8px; }
+    .wide { grid-column: 1 / -1; }
+    .coming-soon {
+      text-align: center; padding: clamp(30px,6vw,56px); border: 1px dashed #b7c5e6;
+      background: linear-gradient(135deg,#fff,#f1f5ff); border-radius: var(--radius);
+    }
+    .coming-soon .icon { font-size: 2.5rem; }
+    .coming-soon h3 { margin: 10px 0; font-size: 1.5rem; }
+    .coming-soon p { color: var(--muted); max-width: 620px; margin: 0 auto; }
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #0b1120;
-            color: #f1f5f9;
-            line-height: 1.7;
-        }
-
-        header {
-            padding: 22px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #263449;
-        }
-
-        header h2 {
-            color: #60a5fa;
-        }
-
-        nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            margin-left: 18px;
-        }
-
-        section {
-            padding: 65px 8%;
-        }
-
-        .hero {
-            text-align: center;
-            padding-top: 100px;
-            padding-bottom: 100px;
-        }
-
-        .tag {
-            color: #60a5fa;
-            margin-bottom: 15px;
-        }
-
-        h1 {
-            font-size: clamp(36px, 7vw, 60px);
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            max-width: 650px;
-            margin: 0 auto 25px;
-            color: #cbd5e1;
-        }
-
-        .button {
-            display: inline-block;
-            background: #2563eb;
-            color: white;
-            padding: 11px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            margin: 5px;
-        }
-
-        .outline {
-            background: transparent;
-            border: 1px solid #64748b;
-        }
-
-        h2 {
-            margin-bottom: 20px;
-        }
-
-        .muted {
-            color: #94a3b8;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 18px;
-            margin-top: 25px;
-        }
-
-        .card {
-            background: #111c30;
-            border: 1px solid #263449;
-            padding: 24px;
-            border-radius: 12px;
-        }
-
-        .card h3 {
-            color: #93c5fd;
-            margin-bottom: 10px;
-        }
-
-        .skills span {
-            display: inline-block;
-            border: 1px solid #334155;
-            border-radius: 6px;
-            padding: 7px 12px;
-            margin: 5px;
-            color: #cbd5e1;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            border-top: 1px solid #263449;
-            color: #94a3b8;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        @media (max-width: 600px) {
-            header {
-                padding: 18px 5%;
-            }
-
-            nav a {
-                margin-left: 8px;
-                font-size: 13px;
-            }
-
-            section {
-                padding: 45px 6%;
-            }
-        }
-    </style>
+    /* Let's Connect uses a WHITE background to match the rest of the portfolio. */
+    .connect-card {
+      display: flex; align-items: center; justify-content: space-between; gap: 25px;
+      background: #ffffff; color: var(--text); border: 1px solid var(--line);
+      border-radius: 24px; padding: clamp(25px,5vw,42px);
+      box-shadow: var(--shadow);
+    }
+    .connect-card h2 { margin-bottom: 10px; font-size: clamp(1.7rem,4vw,2.3rem); }
+    .connect-card p { color: var(--muted); margin: 0; }
+    .connect-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .connect-links a {
+      text-decoration: none; border: 1px solid #d6def0; background: #f7f9ff;
+      border-radius: 11px; padding: 10px 13px; font-weight: 750; color: var(--accent);
+      transition: .2s ease;
+    }
+    .connect-links a:hover { background: var(--soft-blue); border-color: var(--accent); transform: translateY(-2px); }
+    footer { padding: 30px 0 38px; text-align: center; color: var(--muted); font-size: .9rem; }
+    footer .motto { color: var(--text); font-weight: 750; margin-bottom: 6px; }
+    @media (max-width:760px) {
+      .nav { min-height: 66px; padding: 8px 0; }
+      .nav-links { justify-content: flex-start; gap: 25px; overflow-x: auto; overflow-y: hidden; padding: 2px 2px 7px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links a { font-size: .9rem; }
+      .hero { padding-top: 28px; }
+      .skill-list { grid-template-columns: 1fr; gap: 12px; }
+      .skill-row { min-height: auto; padding: 17px 18px; }
+      .hero-card { grid-template-columns: 1fr; gap: 26px; }
+      .avatar { width: 160px; grid-row: 1; border-radius: 22px; }
+      .about-grid,.achievement-grid { grid-template-columns: 1fr; }
+      .wide { grid-column: auto; }
+      .work-card { grid-template-columns: 48px 1fr; gap: 13px; padding: 18px; }
+      .work-icon { width: 46px; height: 46px; font-size: 1.4rem; border-radius: 13px; }
+      .repo-link { grid-column: 2; }
+      .connect-card { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,*::before,*::after { transition: none !important; }
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
-    <h2>Yuvraj R.</h2>
-    <nav>
+  <header class="topbar">
+    <nav class="container nav" aria-label="Main navigation">
+      <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
+        <a href="#featured">Featured Works</a>
+        <a href="#achievements">Achievements</a>
         <a href="#projects">Projects</a>
+        <a href="#connect">Connect</a>
+      </div>
     </nav>
-</header>
+  </header>
 
-<section class="hero">
-    <p class="tag">CLOUD • DEVOPS • AUTOMATION</p>
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-card">
+        <div>
+          <h1>Hi, I'm Yuvraj R.</h1>
+          <p class="role">Aspiring Cloud &amp; DevOps Engineer</p>
+          <p class="hero-copy">I’m a BCA graduate focused on Cloud and DevOps, with hands-on learning across Linux, networking, AWS, containers, CI/CD, infrastructure automation, and monitoring. I document what I learn and practise by exploring commands, concepts, and troubleshooting scenarios.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#featured">Explore My Work ↘</a>
+            <a class="button secondary" href="https://www.linkedin.com/in/yuvraj-r" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
+          </div>
+        </div>
+        <div class="avatar" aria-label="Yuvraj initials placeholder">
+          <!-- To use your photo, upload profile.jpg beside index.html and uncomment the image line below. -->
+          <!-- <img src="profile.jpg" alt="Yuvraj R."> -->
+          YR
+        </div>
+      </div>
+    </section>
 
-    <h1>Hi, I'm Yuvraj 👋</h1>
+    <section class="container" id="about">
+      <div class="section-heading"><h2>About Me</h2><p>A little about my background and what I’m learning.</p></div>
+      <div class="about-grid">
+        <div class="panel about-text">
+          <p>I started learning Cloud &amp; DevOps in July 2026. Since then, I’ve been documenting concepts, commands, practical exercises, errors, and troubleshooting notes so I can strengthen my understanding and revisit what I learn.</p>
+          <p>I’m interested in how applications run behind the scenes—from Linux and networking to cloud infrastructure, containers, deployment, automation, and monitoring. I also maintain repositories for my Java learning and a 30-Day Dataset Challenge.</p>
+          <p>My goal is to keep improving through consistent practice and to turn what I learn into useful, well-documented technical work.</p>
+        </div>
+        <div class="facts">
+          <div class="fact"><strong>🎓 Education</strong><span>Bachelor of Computer Applications (BCA), Christ College Mysuru · 2023–2026</span></div>
+          <div class="fact"><strong>☁️ Cloud &amp; DevOps</strong><span>AWS, Linux, networking, containers, CI/CD, and infrastructure automation</span></div>
+          <div class="fact"><strong>📝 Learning by documenting</strong><span>Technical notes, commands, practical exercises, and troubleshooting</span></div>
+        </div>
+      </div>
+    </section>
 
-    <p>
-        Aspiring Cloud & DevOps Engineer passionate about AWS,
-        Linux, Docker, Kubernetes, infrastructure automation,
-        and building practical cloud projects.
-    </p>
+    <section class="container" id="skills">
+      <div class="section-heading"><h2>Technical Skills</h2><p>Tools and concepts I’ve been learning and practising.</p></div>
+      <div class="panel"><div class="skill-list">
+        <div class="skill-row" style="--skill-color:#315cf5;--skill-tint:#eff3ff"><strong>☁️ Cloud Platform</strong><p>AWS</p></div>
+        <div class="skill-row" style="--skill-color:#08a6a6;--skill-tint:#eafafa"><strong>🐧 Linux &amp; Networking</strong><p>Linux, SSH, networking fundamentals, troubleshooting</p></div>
+        <div class="skill-row" style="--skill-color:#7c4dff;--skill-tint:#f3efff"><strong>🔀 Version Control &amp; Scripting</strong><p>Git, GitHub, Shell Scripting</p></div>
+        <div class="skill-row" style="--skill-color:#1684d8;--skill-tint:#edf7ff"><strong>🐳 Containers &amp; Orchestration</strong><p>Docker, Kubernetes, Minikube</p></div>
+        <div class="skill-row" style="--skill-color:#df8b20;--skill-tint:#fff7e9"><strong>🏗️ Infrastructure as Code &amp; Automation</strong><p>Terraform, Ansible</p></div>
+        <div class="skill-row" style="--skill-color:#e34b79;--skill-tint:#fff0f5"><strong>🔄 CI/CD</strong><p>Jenkins, GitHub Actions, CI/CD pipelines, deployment automation</p></div>
+        <div class="skill-row" style="--skill-color:#179b72;--skill-tint:#eafaf3"><strong>📊 Monitoring</strong><p>Prometheus, Grafana</p></div>
+        <div class="skill-row" style="--skill-color:#7652d6;--skill-tint:#f2efff"><strong>💻 Programming</strong><p>Python, Java</p></div>
+        <div class="skill-row" style="--skill-color:#d75b35;--skill-tint:#fff2ec"><strong>🌐 Web Technologies</strong><p>HTML, CSS</p></div>
+        <div class="skill-row" style="--skill-color:#1686a8;--skill-tint:#eaf8fc"><strong>🤖 AI &amp; Machine Learning</strong><p>Artificial Intelligence, Machine Learning fundamentals</p></div>
+      </div></div>
+    </section>
 
-    <a class="button"
-       href="https://github.com/Yuvii2102">
-       Explore My GitHub
-    </a>
+    <section class="container" id="featured">
+      <div class="section-heading"><h2>Featured Works</h2><p>Repositories where I document my learning, practise programming, and build my technical foundations.</p></div>
+      <div class="work-list">
+        <article class="work-card"><div class="work-icon">☁️</div><div><h3>My DevOps &amp; Cloud Journey</h3><p>My hands-on journey into DevOps and Cloud Engineering—documenting what I learn, build, break, troubleshoot, and improve. Covers Linux, Git, AWS, Docker, Kubernetes, CI/CD, Terraform, and more.</p><div class="tags"><span class="tag">AWS</span><span class="tag">Linux</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">CI/CD</span></div></div><a class="repo-link" href="https://github.com/Yuvii2102/My-Devops-Cloud-Journey" target="_blank" rel="noopener noreferrer">View repo ↗</a></article>
+        <article class="work-card"><div class="work-icon">🐧</div><div><h3>DevOps Learning with Yuvraj</h3><p>A practical reference for Linux commands, Bash shell scripting, and Git commands, organised to support revision, daily practice, and troubleshooting.</p><div class="tags"><span class="tag">Linux</span><span class="tag">Bash</span><span class="tag">Git</span></div></div><a class="repo-link" href="https://github.com/Yuvii2102/Devops-Learning-with-Yuvraj" target="_blank" rel="noopener noreferrer">View repo ↗</a></article>
+        <article class="work-card"><div class="work-icon">☕</div><div><h3>Core Java Concepts</h3><p>My collection of Core Java theory notes and concepts, created to build a clear understanding of Java fundamentals.</p><div class="tags"><span class="tag">Java</span><span class="tag">Theory Notes</span><span class="tag">Fundamentals</span></div></div><a class="repo-link" href="https://github.com/Yuvii2102/Core-Java-Concepts" target="_blank" rel="noopener noreferrer">View repo ↗</a></article>
+        <article class="work-card"><div class="work-icon">💻</div><div><h3>Journey with Java</h3><p>Java programs arranged across six progressive levels, from basic Level 1 exercises to advanced Level 6 programs and coding techniques.</p><div class="tags"><span class="tag">Java</span><span class="tag">Programming</span><span class="tag">6 Levels</span></div></div><a class="repo-link" href="https://github.com/Yuvii2102/Journey-With-Java" target="_blank" rel="noopener noreferrer">View repo ↗</a></article>
+        <article class="work-card"><div class="work-icon">📊</div><div><h3>30-Day Dataset Challenge</h3><p>A 30-day learning challenge exploring datasets, identifying problem statements, practising data analysis, and learning Machine Learning concepts through hands-on exercises.</p><div class="tags"><span class="tag">Python</span><span class="tag">Datasets</span><span class="tag">Data Analysis</span><span class="tag">Machine Learning</span></div></div><a class="repo-link" href="https://github.com/Yuvii2102/30-Day-Dataset-Challenge" target="_blank" rel="noopener noreferrer">View repo ↗</a></article>
+      </div>
+    </section>
 
-    <a class="button outline"
-       href="https://www.linkedin.com/"
-       target="_blank" rel="noopener noreferrer">
-       LinkedIn
-    </a>
-</section>
+    <section class="container" id="achievements">
+      <div class="section-heading"><h2>Achievements &amp; Leadership</h2><p>Academic background, leadership responsibilities, and competition achievements.</p></div>
+      <div class="achievement-grid">
+        <article class="achievement-card"><h3>🎓 Education</h3><p><strong>Christ College Mysuru</strong><br>Bachelor of Computer Applications (BCA)<br>August 2023 – June 2026</p></article>
+        <article class="achievement-card"><h3>🏆 Competition Achievements</h3><ul><li><strong>Winner</strong> — CONNECT 2026 Startup Competition (Industry–Academia Meet)</li><li><strong>Winner</strong> — A.V. Quiz Competition (Code Carnival)</li><li><strong>Runner-Up</strong> — Byte Battle Coding Competition (Code Carnival)</li></ul></article>
+        <article class="achievement-card"><h3>👥 Leadership &amp; Student Representation</h3><ul><li>Served as Class Representative (CR) for two consecutive academic years, representing students and coordinating with faculty on academic and departmental activities.</li><li>Appointed Placement Coordinator during my final year, supporting campus recruitment drives and placement activities.</li></ul></article>
+        <article class="achievement-card"><h3>🎤 Event Hosting &amp; Public Speaking</h3><p>Hosted the National-Level Multidisciplinary Conference on Artificial Intelligence (2025) as Master of Ceremonies (MC), managing stage proceedings and welcoming distinguished guests.</p></article>
+        <article class="achievement-card wide"><h3>🛠️ Technical Development</h3><p>Participated in technical workshops, coding competitions, and collaborative activities to strengthen my programming, communication, teamwork, cloud computing, and DevOps skills.</p></article>
+      </div>
+    </section>
 
-<section id="about">
-    <h2>About Me</h2>
+    <section class="container" id="projects">
+      <div class="section-heading"><h2>Projects</h2><p>I’m working towards turning my learning into practical, end-to-end projects.</p></div>
+      <div class="coming-soon"><div class="icon">🚀</div><h3>Projects Coming Soon</h3><p>I’m building my project portfolio. This section will be updated as I complete practical Cloud and DevOps projects.</p></div>
+    </section>
 
-    <p class="muted">
-        I am building my Cloud & DevOps skills through hands-on
-        projects and technical documentation. I enjoy learning
-        how infrastructure works, automating repetitive tasks,
-        and troubleshooting technical problems.
-    </p>
-</section>
+    <section class="container" id="connect">
+      <div class="connect-card">
+        <div><h2>Let’s Connect</h2><p>Interested in Cloud, DevOps, automation, and opportunities to learn and grow.</p></div>
+        <div class="connect-links">
+          <a href="https://github.com/Yuvii2102" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/yuvraj-r" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a href="mailto:yuvrajmysuru@gmail.com">Email ↗</a>
+          <a href="https://build-break-fix-diaries-with-yuvrajj.hashnode.dev/" target="_blank" rel="noopener noreferrer">Hashnode ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<section id="skills">
-    <h2>Technical Skills</h2>
-
-    <div class="skills">
-        <span>AWS</span>
-        <span>Linux</span>
-        <span>Bash</span>
-        <span>Git</span>
-        <span>GitHub</span>
-        <span>Docker</span>
-        <span>Kubernetes</span>
-        <span>Terraform</span>
-        <span>Jenkins</span>
-        <span>Ansible</span>
-        <span>Prometheus</span>
-        <span>Grafana</span>
-    </div>
-</section>
-
-<section id="projects">
-    <h2>Featured Projects</h2>
-
-    <div class="grid">
-        <article class="card">
-            <h3>Cloud & DevOps Journey</h3>
-            <p class="muted">
-                My learning documentation, practical exercises,
-                and cloud projects.
-            </p>
-            <br>
-            <a href="https://github.com/Yuvii2102/My-Devops-Cloud-Journey"
-               target="_blank" rel="noopener noreferrer">
-               View Project →
-            </a>
-        </article>
-
-        <article class="card">
-            <h3>Kubernetes Monitoring</h3>
-            <p class="muted">
-                Exploring cluster monitoring and dashboards
-                using Prometheus and Grafana.
-            </p>
-        </article>
-
-        <article class="card">
-            <h3>Infrastructure Automation</h3>
-            <p class="muted">
-                Learning to manage cloud infrastructure
-                with Terraform and AWS.
-            </p>
-        </article>
-    </div>
-</section>
-
-<section id="blogs">
-    <h2>Technical Blogs</h2>
-
-    <p class="muted">
-        I document my Cloud & DevOps learning journey
-        and share technical concepts.
-    </p>
-
-    <br>
-
-    <a class="button"
-       href="https://build-break-fix-diaries-with-yuvrajj.hashnode.dev/"
-       target="_blank" rel="noopener noreferrer">
-       Read My Blogs
-    </a>
-</section>
-
-<section id="contact">
-    <h2>Let's Connect</h2>
-
-    <p class="muted">
-        Interested in Cloud, DevOps, automation,
-        and opportunities to learn and grow.
-    </p>
-
-    <br>
-
-    <a class="button"
-       href="https://github.com/Yuvii2102">
-       GitHub
-    </a>
-
-    <a class="button outline"
-       href="https://www.linkedin.com/">
-       LinkedIn
-    </a>
-</section>
-
-<footer>
-    <p>© 2026 Yuvraj R. | Cloud & DevOps Portfolio</p>
-</footer>
-
+  <footer class="container">
+    <div class="motto">Start where you are. Learn and grow every day. 💎</div>
+    <div>© 2026 Yuvraj R. | Cloud &amp; DevOps Portfolio</div>
+  </footer>
 </body>
-                          </html>
+</html>
