@@ -182,25 +182,27 @@
 
     /* Profile photo: portrait-shaped box, with the entire photo visible. */
     .avatar {
-      width: min(100%, 380px);
+      width: min(100%, 240px);
       justify-self: center;
       align-self: center;
-      padding: 7px;
-      border-radius: 26px;
-      background: linear-gradient(145deg, #e8efff, #ffffff);
-      border: 3px solid var(--accent);
-      box-shadow: 0 12px 30px rgba(49, 92, 245, 0.18);
-      overflow: hidden;
+      padding: 0;
+      border: 0;
+      border-radius: 14px;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
     }
 
     .avatar img {
       display: block;
       width: 100%;
       height: auto;
-      max-height: 520px;
+      max-height: 320px;
       object-fit: contain;
       object-position: center;
-      border-radius: 17px;
+      border: 0;
+      border-radius: 12px;
+      box-shadow: none;
     }
 
     /* Sections */
@@ -426,7 +428,18 @@
     .connect-card h2 { margin-bottom: 10px; font-size: clamp(1.7rem, 4vw, 2.3rem); }
     .connect-card p { color: var(--muted); margin: 0; }
 
-    .connect-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .connect-links {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 10px;
+      width: 100%;
+      overflow-x: auto;
+      padding: 2px 1px 8px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .connect-links a { flex: 0 0 auto; white-space: nowrap; }
 
     .connect-links a {
       text-decoration: none;
@@ -485,10 +498,25 @@
       }
 
       .avatar {
-        width: min(100%, 340px);
+        width: min(100%, 180px);
         grid-row: 1;
-        border-radius: 22px;
-        padding: 6px;
+        padding: 0;
+        border: 0;
+        border-radius: 12px;
+        box-shadow: none;
+      }
+
+      .avatar img {
+        width: 100%;
+        max-height: 240px;
+        border: 0;
+        border-radius: 10px;
+        box-shadow: none;
+      }
+
+      .connect-links {
+        flex-wrap: nowrap;
+        overflow-x: auto;
       }
 
       .skill-list { grid-template-columns: 1fr; gap: 12px; }
@@ -795,4 +823,3 @@
   </script>
 </body>
 </html>
-
