@@ -1,1 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuvraj R | Cloud & DevOps</title>
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1120;
+            color: #f1f5f9;
+            line-height: 1.7;
+        }
+
+        header {
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #263449;
+        }
+
+        header h2 {
+            color: #60a5fa;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-left: 18px;
+        }
+
+        section {
+            padding: 65px 8%;
+        }
+
+        .hero {
+            text-align: center;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .tag {
+            color: #60a5fa;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: clamp(36px, 7vw, 60px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            color: #cbd5e1;
+        }
+
+        .button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 5px;
+        }
+
+        .outline {
+            background: transparent;
+            border: 1px solid #64748b;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .muted {
+            color: #94a3b8;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .card {
+            background: #111c30;
+            border: 1px solid #263449;
+            padding: 24px;
+            border-radius: 12px;
+        }
+
+        .card h3 {
+            color: #93c5fd;
+            margin-bottom: 10px;
+        }
+
+        .skills span {
+            display: inline-block;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 7px 12px;
+            margin: 5px;
+            color: #cbd5e1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #263449;
+            color: #94a3b8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            nav a {
+                margin-left: 8px;
+                font-size: 13px;
+            }
+
+            section {
+                padding: 45px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>Yuvraj R.</h2>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <p class="tag">CLOUD • DEVOPS • AUTOMATION</p>
+
+    <h1>Hi, I'm Yuvraj 👋</h1>
+
+    <p>
+        Aspiring Cloud & DevOps Engineer passionate about AWS,
+        Linux, Docker, Kubernetes, infrastructure automation,
+        and building practical cloud projects.
+    </p>
+
+    <a class="button"
+       href="https://github.com/Yuvii2102">
+       Explore My GitHub
+    </a>
+
+    <a class="button outline"
+       href="https://www.linkedin.com/"
+       target="_blank" rel="noopener noreferrer">
+       LinkedIn
+    </a>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+
+    <p class="muted">
+        I am building my Cloud & DevOps skills through hands-on
+        projects and technical documentation. I enjoy learning
+        how infrastructure works, automating repetitive tasks,
+        and troubleshooting technical problems.
+    </p>
+</section>
+
+<section id="skills">
+    <h2>Technical Skills</h2>
+
+    <div class="skills">
+        <span>AWS</span>
+        <span>Linux</span>
+        <span>Bash</span>
+        <span>Git</span>
+        <span>GitHub</span>
+        <span>Docker</span>
+        <span>Kubernetes</span>
+        <span>Terraform</span>
+        <span>Jenkins</span>
+        <span>Ansible</span>
+        <span>Prometheus</span>
+        <span>Grafana</span>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Featured Projects</h2>
+
+    <div class="grid">
+        <article class="card">
+            <h3>Cloud & DevOps Journey</h3>
+            <p class="muted">
+                My learning documentation, practical exercises,
+                and cloud projects.
+            </p>
+            <br>
+            <a href="https://github.com/Yuvii2102/My-Devops-Cloud-Journey"
+               target="_blank" rel="noopener noreferrer">
+               View Project →
+            </a>
+        </article>
+
+        <article class="card">
+            <h3>Kubernetes Monitoring</h3>
+            <p class="muted">
+                Exploring cluster monitoring and dashboards
+                using Prometheus and Grafana.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>Infrastructure Automation</h3>
+            <p class="muted">
+                Learning to manage cloud infrastructure
+                with Terraform and AWS.
+            </p>
+        </article>
+    </div>
+</section>
+
+<section id="blogs">
+    <h2>Technical Blogs</h2>
+
+    <p class="muted">
+        I document my Cloud & DevOps learning journey
+        and share technical concepts.
+    </p>
+
+    <br>
+
+    <a class="button"
+       href="https://build-break-fix-diaries-with-yuvrajj.hashnode.dev/"
+       target="_blank" rel="noopener noreferrer">
+       Read My Blogs
+    </a>
+</section>
+
+<section id="contact">
+    <h2>Let's Connect</h2>
+
+    <p class="muted">
+        Interested in Cloud, DevOps, automation,
+        and opportunities to learn and grow.
+    </p>
+
+    <br>
+
+    <a class="button"
+       href="https://github.com/Yuvii2102">
+       GitHub
+    </a>
+
+    <a class="button outline"
+       href="https://www.linkedin.com/">
+       LinkedIn
+    </a>
+</section>
+
+<footer>
+    <p>© 2026 Yuvraj R. | Cloud & DevOps Portfolio</p>
+</footer>
+
+</body>
+                          </html>
